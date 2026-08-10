@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inshallah Widows and Orphans Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #142347;
+    --navy-2: #1d3266;
+    --navy-soft: #2a4080;
+    --gold: #f2a13a;
+    --gold-light: #fbcf7d;
+    --sand: #faf6ee;
+    --sand-2: #f1e7d6;
+    --ink: #1c2540;
+    --ink-soft: #5b6378;
+    --cream-text: #f7f3ea;
+    --max: 1180px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.15;
+    color:var(--navy);
+  }
+
+  img{ max-width:100%; display:block; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--gold);
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(20,35,71,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 28px;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .brand img{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+  }
+
+  .brand-text{
+    color:var(--cream-text);
+    font-family:'Fraunces', serif;
+    line-height:1.15;
+  }
+
+  .brand-text strong{
+    display:block;
+    font-size:1rem;
+    font-weight:600;
+  }
+
+  .brand-text span{
+    display:block;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    font-family:'Work Sans', sans-serif;
+    margin-top:2px;
+  }
+
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+  }
+
+  nav.links a{
+    color:var(--cream-text);
+    font-size:0.92rem;
+    font-weight:500;
+    position:relative;
+    padding:4px 0;
+    transition:color .2s ease;
+  }
+
+  nav.links a:hover{ color:var(--gold-light); }
+
+  nav.links a.cta{
+    background:var(--gold);
+    color:var(--navy);
+    padding:9px 20px;
+    border-radius:999px;
+    font-weight:700;
+    transition:background .2s ease, transform .2s ease;
+  }
+
+  nav.links a.cta:hover{
+    background:var(--gold-light);
+    transform:translateY(-1px);
+  }
+
+  .menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:var(--cream-text);
+    font-size:1.6rem;
+    cursor:pointer;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 65%, var(--navy-soft) 100%);
+    overflow:hidden;
+    padding:90px 0 0;
+  }
+
+  .hero-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px 60px;
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+
+  .hero h1{
+    color:var(--cream-text);
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    max-width:14ch;
+    margin:18px 0 22px;
+  }
+
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-light);
+  }
+
+  .hero p.lead{
+    color:rgba(247,243,234,0.82);
+    font-size:1.1rem;
+    max-width:52ch;
+    margin-bottom:34px;
+  }
+
+  .hero-ctas{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:60px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 30px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.95rem;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    border:1px solid transparent;
+  }
+
+  .btn-primary{
+    background:var(--gold);
+    color:var(--navy);
+  }
+
+  .btn-primary:hover{
+    background:var(--gold-light);
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(242,161,58,0.25);
+  }
+
+  .btn-ghost{
+    border-color:rgba(247,243,234,0.35);
+    color:var(--cream-text);
+  }
+
+  .btn-ghost:hover{
+    background:rgba(247,243,234,0.08);
+    transform:translateY(-2px);
+  }
+
+  /* sunrise svg */
+  .sunrise{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+
+  .sunrise .ray{
+    transform-origin:center;
+    animation:rise 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes rise{
+    from{ opacity:0.35; transform:scaleY(0.92); }
+    to{ opacity:0.9; transform:scaleY(1.04); }
+  }
+
+  .sunrise .moon{
+    animation:glow 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow{
+    from{ opacity:0.7; }
+    to{ opacity:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sunrise .ray, .sunrise .moon{ animation:none; }
+  }
+
+  /* ---------- DAWN DIVIDER ---------- */
+  .dawn-divider{
+    display:flex;
+    justify-content:center;
+    padding:46px 0;
+    background:var(--sand);
+  }
+
+  .dawn-divider.on-navy{ background:var(--navy); }
+
+  /* ---------- SECTION GENERAL ---------- */
+  section{ padding:10px 0 90px; }
+
+  .section-head{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 50px;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin-top:10px;
+  }
+
+  .section-head p{
+    color:var(--ink-soft);
+    margin-top:14px;
+    font-size:1.02rem;
+  }
+
+  /* ---------- MISSION / VISION ---------- */
+  .mv-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+
+  .mv-card{
+    background:#fff;
+    border:1px solid var(--sand-2);
+    border-radius:18px;
+    padding:38px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .mv-card::before{
+    content:"";
+    position:absolute;
+    top:-40px;
+    right:-40px;
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(242,161,58,0.16), transparent 70%);
+  }
+
+  .mv-card h3{
+    font-size:1.35rem;
+    margin-bottom:14px;
+  }
+
+  .mv-card p{
+    color:var(--ink-soft);
+    position:relative;
+    z-index:1;
+  }
+
+  /* core values */
+  .values{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    margin-top:46px;
+  }
+
+  .value-pill{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#fff;
+    border:1px solid var(--sand-2);
+    border-radius:999px;
+    padding:12px 22px;
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--navy);
+  }
+
+  .value-pill .dot{
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--gold);
+    flex-shrink:0;
+  }
+
+  /* ---------- PROGRAMS ---------- */
+  .programs-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+
+  .program-card{
+    background:#fff;
+    border:1px solid var(--sand-2);
+    border-radius:18px;
+    padding:32px 28px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+
+  .program-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 36px rgba(20,35,71,0.08);
+  }
+
+  .program-icon{
+    width:52px; height:52px;
+    border-radius:14px;
+    background:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+  }
+
+  .program-icon svg{ width:26px; height:26px; }
+
+  .program-card h3{
+    font-size:1.15rem;
+    margin-bottom:10px;
+  }
+
+  .program-card p{
+    color:var(--ink-soft);
+    font-size:0.96rem;
+  }
+
+  /* ---------- GALLERY PLACEHOLDERS ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+
+  .gallery-item{
+    aspect-ratio:1/1;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--sand-2), #fff);
+    border:1px dashed #d8c9ad;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:18px;
+  }
+
+  .gallery-item svg{ width:30px; height:30px; opacity:0.55; }
+
+  .gallery-item span{
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* ---------- DONATE ---------- */
+  .donate-section{
+    background:var(--navy);
+    color:var(--cream-text);
+    border-radius:28px;
+    padding:60px 40px;
+    margin-top:0;
+  }
+
+  .donate-section .section-head h2{ color:var(--cream-text); }
+  .donate-section .section-head p{ color:rgba(247,243,234,0.75); }
+  .donate-section .eyebrow{ color:var(--gold-light); }
+
+  .donate-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  .donate-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+  }
+
+  .donate-card .label{
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  .donate-card .number{
+    font-family:'Fraunces', serif;
+    font-size:1.8rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    margin-bottom:16px;
+  }
+
+  .donate-card a.copy-link{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--gold-light);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:999px;
+    padding:9px 20px;
+    display:inline-block;
+    transition:background .2s ease;
+  }
+
+  .donate-card a.copy-link:hover{
+    background:rgba(255,255,255,0.08);
+  }
+
+  .donate-note{
+    text-align:center;
+    margin-top:30px;
+    font-size:0.92rem;
+    color:rgba(247,243,234,0.7);
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:stretch;
+  }
+
+  .contact-info{
+    background:#fff;
+    border:1px solid var(--sand-2);
+    border-radius:18px;
+    padding:38px;
+  }
+
+  .contact-info h3{ font-size:1.3rem; margin-bottom:18px; }
+
+  .contact-row{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    margin-bottom:18px;
+  }
+
+  .contact-row .icon{
+    width:40px; height:40px;
+    border-radius:12px;
+    background:var(--sand-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .contact-row .icon svg{ width:18px; height:18px; }
+
+  .contact-row strong{ display:block; color:var(--navy); margin-bottom:2px; }
+  .contact-row span, .contact-row a{ color:var(--ink-soft); font-size:0.95rem; }
+  .contact-row a:hover{ color:var(--navy); }
+
+  .contact-cta{
+    background:linear-gradient(160deg, var(--navy), var(--navy-soft));
+    border-radius:18px;
+    padding:38px;
+    color:var(--cream-text);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .contact-cta::after{
+    content:"";
+    position:absolute;
+    bottom:-60px;
+    right:-60px;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(242,161,58,0.25), transparent 70%);
+  }
+
+  .contact-cta h3{ color:var(--cream-text); font-size:1.4rem; margin-bottom:12px; position:relative; z-index:1; }
+  .contact-cta p{ color:rgba(247,243,234,0.78); margin-bottom:24px; position:relative; z-index:1; }
+
+  .whatsapp-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    z-index:1;
+  }
+
+  .whatsapp-links a{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:12px;
+    padding:13px 18px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:background .2s ease;
+  }
+
+  .whatsapp-links a:hover{ background:rgba(255,255,255,0.14); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy);
+    color:rgba(247,243,234,0.7);
+    padding:50px 0 28px;
+  }
+
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:30px;
+    padding-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    margin-bottom:24px;
+  }
+
+  .footer-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .footer-brand img{
+    width:54px; height:54px; border-radius:50%;
+  }
+
+  .footer-brand strong{
+    font-family:'Fraunces', serif;
+    color:var(--cream-text);
+    font-size:1.1rem;
+    display:block;
+  }
+
+  .footer-brand span{
+    font-size:0.85rem;
+    color:rgba(247,243,234,0.6);
+  }
+
+  .footer-links{
+    display:flex;
+    gap:36px;
+    flex-wrap:wrap;
+  }
+
+  .footer-links a{
+    font-size:0.9rem;
+    transition:color .2s ease;
+  }
+
+  .footer-links a:hover{ color:var(--gold-light); }
+
+  .footer-bottom{
+    text-align:center;
+    font-size:0.82rem;
+    color:rgba(247,243,234,0.45);
+  }
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 880px){
+    .mv-grid{ grid-template-columns:1fr; }
+    .programs-grid{ grid-template-columns:repeat(2, 1fr); }
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+    .donate-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width: 720px){
+    nav.links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--navy);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 28px 28px;
+      gap:18px;
+      display:none;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    nav.links.open{ display:flex; }
+    nav.links a.cta{ width:100%; text-align:center; }
+    .menu-toggle{ display:block; }
+    .programs-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
+    .donate-section{ padding:46px 22px; border-radius:20px; }
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation logo" />
+      <div class="brand-text">
+        <strong>Inshallah Widows &amp; Orphans Foundation</strong>
+        <span>A better future, together</span>
+      </div>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menuToggle">&#9776;</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#programs">What We Do</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a href="#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="sunrise" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- crescent moon -->
+    <g class="moon">
+      <path d="M 640 90 a 34 34 0 1 0 6 67 a 44 44 0 0 1 -6 -67 z" fill="#fbcf7d" opacity="0.85"/>
+    </g>
+    <!-- rays -->
+    <g class="ray" stroke="#f2a13a" stroke-width="9" stroke-linecap="round" opacity="0.55">
+      <line x1="600" y1="430" x2="600" y2="330"/>
+      <line x1="540" y1="436" x2="528" y2="338"/>
+      <line x1="480" y1="452" x2="456" y2="358"/>
+      <line x1="424" y1="478" x2="388" y2="392"/>
+      <line x1="376" y1="514" x2="328" y2="438"/>
+      <line x1="660" y1="436" x2="672" y2="338"/>
+      <line x1="720" y1="452" x2="744" y2="358"/>
+      <line x1="776" y1="478" x2="812" y2="392"/>
+      <line x1="824" y1="514" x2="872" y2="438"/>
+    </g>
+    <!-- sun arc -->
+    <circle cx="600" cy="430" r="140" fill="none" stroke="#f2a13a" stroke-width="6" opacity="0.5"/>
+    <!-- horizon -->
+    <rect x="0" y="430" width="1200" height="190" fill="#0e1a37"/>
+    <ellipse cx="600" cy="430" rx="650" ry="60" fill="#1d3266" opacity="0.6"/>
+  </svg>
+
+  <div class="hero-inner">
+    <p class="eyebrow">Inshallah Widows &amp; Orphans Foundation &mdash; Kusaug, Upper East Region</p>
+    <h1>Restoring hope and dignity for <em>widows and orphans</em></h1>
+    <p class="lead">
+      We care for vulnerable widows and orphans in Kusaug and surrounding communities &mdash;
+      providing food, shelter, healthcare, education and the chance to build an
+      independent, dignified future.
+    </p>
+    <div class="hero-ctas">
+      <a href="#donate" class="btn btn-primary">Support Our Work</a>
+      <a href="#about" class="btn btn-ghost">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT / MISSION / VISION ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Who We Are</p>
+      <h2>Care, dignity and a brighter future for Kusaug's widows and orphans</h2>
+      <p>
+        At Inshallah Widows and Orphans Foundation, we are committed to restoring hope,
+        dignity and happiness to vulnerable women and children through love, care and
+        community support &mdash; addressing immediate needs while building pathways to
+        long-term independence.
+      </p>
+    </div>
+
+    <div class="mv-grid">
+      <div class="mv-card reveal">
+        <p class="eyebrow">Mission</p>
+        <h3>Why we exist</h3>
+        <p>
+          To improve the lives of widows and orphans by promoting social welfare,
+          education and economic empowerment within the Kusaug community.
+        </p>
+      </div>
+      <div class="mv-card reveal">
+        <p class="eyebrow">Vision</p>
+        <h3>What we're working toward</h3>
+        <p>
+          A society where widows and orphans are protected, empowered and valued
+          &mdash; with equal opportunity for a brighter future.
+        </p>
+      </div>
+    </div>
+
+    <div class="values reveal">
+      <div class="value-pill"><span class="dot"></span>Compassion</div>
+      <div class="value-pill"><span class="dot"></span>Integrity</div>
+      <div class="value-pill"><span class="dot"></span>Unity</div>
+      <div class="value-pill"><span class="dot"></span>Accountability</div>
+      <div class="value-pill"><span class="dot"></span>Respect</div>
+      <div class="value-pill"><span class="dot"></span>Service</div>
+    </div>
+  </div>
+</section>
+
+<div class="dawn-divider">
+  <svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="80" y1="34" x2="80" y2="14"/>
+      <line x1="56" y1="36" x2="50" y2="18"/>
+      <line x1="104" y1="36" x2="110" y2="18"/>
+      <line x1="32" y1="38" x2="22" y2="24"/>
+      <line x1="128" y1="38" x2="138" y2="24"/>
+    </g>
+    <path d="M 20 38 A 60 60 0 0 1 140 38" fill="none" stroke="#f2a13a" stroke-width="4" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- ================= PROGRAMS ================= -->
+<section id="programs">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What We Do</p>
+      <h2>Support that meets real, everyday needs</h2>
+      <p>
+        We provide essential support and create opportunities for widows and orphans
+        to recover, grow and thrive &mdash; from immediate relief to long-term empowerment.
+      </p>
+    </div>
+
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M3 11a9 9 0 0118 0M3 11v7a1 1 0 001 1h16a1 1 0 001-1v-7M8 18v2M16 18v2"/></svg>
+        </div>
+        <h3>Food &amp; Basic Needs</h3>
+        <p>Regular food support and essential household items to ease daily hardship for families in need.</p>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>
+        </div>
+        <h3>Shelter &amp; Clothing</h3>
+        <p>Helping widows and orphans secure safe housing and access to clothing for themselves and their children.</p>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.29 1.5 4.04 3 5.5l7 7z"/></svg>
+        </div>
+        <h3>Healthcare Access</h3>
+        <p>Connecting families to medical care and health support so health challenges don't go unaddressed.</p>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <h3>Education Support</h3>
+        <p>Helping orphans stay in school with support for fees, supplies, and a path toward a better future.</p>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3>Skills Training &amp; Empowerment</h3>
+        <p>Vocational training and economic empowerment programs that help widows become self-reliant.</p>
+      </div>
+
+      <div class="program-card reveal">
+        <div class="program-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <h3>Counseling &amp; Mentorship</h3>
+        <p>Emotional guidance and mentorship to help widows and orphans overcome trauma, loneliness and hardship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dawn-divider">
+  <svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="80" y1="34" x2="80" y2="14"/>
+      <line x1="56" y1="36" x2="50" y2="18"/>
+      <line x1="104" y1="36" x2="110" y2="18"/>
+      <line x1="32" y1="38" x2="22" y2="24"/>
+      <line x1="128" y1="38" x2="138" y2="24"/>
+    </g>
+    <path d="M 20 38 A 60 60 0 0 1 140 38" fill="none" stroke="#f2a13a" stroke-width="4" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- ================= GALLERY (placeholders) ================= -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our Work</p>
+      <h2>Moments from the field</h2>
+      <p>Photos from our outreach and programs will appear here soon.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Photo coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DONATE ================= -->
+<section id="donate">
+  <div class="wrap">
+    <div class="donate-section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Support Our Work</p>
+        <h2>Your support brings hope to Kusaug's widows and orphans</h2>
+        <p>
+          Every contribution helps us provide food, shelter, healthcare, education and
+          empowerment programs. You can send your support directly via mobile money.
+        </p>
+      </div>
+
+      <div class="donate-grid">
+        <div class="donate-card">
+          <div class="label">Mobile Money</div>
+          <div class="number">054 792 9451</div>
+          <a class="copy-link" href="tel:0547929451">Call / Send to this number</a>
+        </div>
+        <div class="donate-card">
+          <div class="label">Mobile Money</div>
+          <div class="number">024 999 1170</div>
+          <a class="copy-link" href="tel:0249991170">Call / Send to this number</a>
+        </div>
+      </div>
+
+      <p class="donate-note">
+        Please confirm the registered name before sending a donation. For bank
+        transfer details or to discuss partnerships and in-kind donations, contact
+        us directly using the details below.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Get In Touch</p>
+      <h2>We'd love to hear from you</h2>
+      <p>Whether you'd like to volunteer, partner with us, or learn more about our programs, reach out anytime.</p>
+    </div>
+
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h3>Contact Details</h3>
+        <div class="contact-row">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <strong>Phone</strong>
+            <a href="tel:0547929451">0547 929 451</a><br/>
+            <a href="tel:0249991170">0249 991 170</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>Location</strong>
+            <span>Kusaug Community, Upper East Region, Ghana</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#142347" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <strong>Office Hours</strong>
+            <span>Monday &ndash; Saturday, 8:00am &ndash; 5:00pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Reach us on WhatsApp</h3>
+        <p>For quick questions, partnership inquiries, or to arrange a visit &mdash; message us directly.</p>
+        <div class="whatsapp-links">
+          <a href="https://wa.me/233547929451" target="_blank" rel="noopener">0547 929 451 <span>&rarr;</span></a>
+          <a href="https://wa.me/233249991170" target="_blank" rel="noopener">0249 991 170 <span>&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation logo" />
+        <div>
+          <strong>Inshallah Widows &amp; Orphans Foundation</strong>
+          <span>A Better Future for Widows and Orphans</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#programs">What We Do</a>
+        <a href="#gallery">Our Work</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Inshallah Widows and Orphans Foundation. Kusaug, Upper East Region, Ghana.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
