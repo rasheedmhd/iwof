@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – Inshallah Widows and Orphans Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ---- ABOUT-SPECIFIC ---- */
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.mv-card{background:#fff;border:1px solid var(--sand-2);border-radius:18px;padding:38px;position:relative;overflow:hidden;}
+.mv-card::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(242,161,58,0.16),transparent 70%);}
+.mv-card h3{font-size:1.35rem;margin-bottom:14px;}
+.mv-card p{color:var(--ink-soft);position:relative;z-index:1;}
+
+.values{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:46px;}
+.value-pill{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--sand-2);border-radius:999px;padding:12px 22px;font-weight:600;font-size:0.95rem;color:var(--navy);}
+.value-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* story */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.story-text h2{font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:18px;}
+.story-text p{color:var(--ink-soft);margin-bottom:16px;font-size:1.02rem;}
+.story-img{border-radius:24px;overflow:hidden;box-shadow:0 20px 48px rgba(20,35,71,0.14);}
+.story-img img{width:100%;height:420px;object-fit:cover;}
+
+/* stat strip */
+.stat-strip{background:var(--navy);border-radius:22px;padding:50px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;margin:0 0 90px;}
+.stat-strip .stat-val{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--gold);display:block;}
+.stat-strip .stat-label{font-size:0.88rem;color:rgba(247,243,234,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-top:6px;}
+
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.team-card{background:#fff;border:1px solid var(--sand-2);border-radius:20px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,35,71,0.1);}
+.team-photo{aspect-ratio:1/1;overflow:hidden;background:var(--sand-2);}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .4s ease;}
+.team-card:hover .team-photo img{transform:scale(1.04);}
+.team-info{padding:20px;}
+.team-info h3{font-size:1.05rem;margin-bottom:4px;}
+.team-info .role{font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+.team-info .bio{font-size:0.88rem;color:var(--ink-soft);margin-top:8px;line-height:1.5;}
+
+@media(max-width:1000px){.team-grid{grid-template-columns:repeat(2,1fr);}.stat-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:760px){.mv-grid{grid-template-columns:1fr;}.story-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:repeat(2,1fr);}.stat-strip{grid-template-columns:1fr 1fr;padding:36px 22px;}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr 1fr;}.stat-strip{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation logo"/>
+      <div class="brand-text">
+        <strong>Inshallah Widows &amp; Orphans Foundation</strong>
+        <span>A better future, together</span>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menuToggle">&#9776;</button>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <svg class="bg" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="8" stroke-linecap="round" opacity="0.6">
+      <line x1="600" y1="310" x2="600" y2="210"/><line x1="550" y1="314" x2="538" y2="216"/>
+      <line x1="500" y1="326" x2="476" y2="232"/><line x1="454" y1="346" x2="418" y2="260"/>
+      <line x1="650" y1="314" x2="662" y2="216"/><line x1="700" y1="326" x2="724" y2="232"/>
+      <line x1="746" y1="346" x2="782" y2="260"/>
+    </g>
+    <circle cx="600" cy="310" r="110" fill="none" stroke="#f2a13a" stroke-width="5" opacity="0.35"/>
+    <path d="M 645 268 a 28 28 0 1 0 4 56 a 38 38 0 0 1 -4 -56 z" fill="#fbcf7d" opacity="0.7"/>
+  </svg>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <p class="eyebrow" style="color:var(--gold-light);">Who We Are</p>
+    <h1>About Our Foundation</h1>
+    <p>Rooted in compassion, driven by purpose — serving Kusaug's widows, orphans and persons with disabilities.</p>
+  </div>
+</div>
+
+<!-- MISSION / VISION -->
+<section>
+  <div class="wrap">
+    <div class="mv-grid reveal">
+      <div class="mv-card">
+        <p class="eyebrow">Mission</p>
+        <h3>Why we exist</h3>
+        <p>To improve the lives of widows and orphans by promoting social welfare, education and economic empowerment within the Kusaug community.</p>
+      </div>
+      <div class="mv-card">
+        <p class="eyebrow">Vision</p>
+        <h3>What we're building toward</h3>
+        <p>A society where widows and orphans are protected, empowered and valued — with equal opportunity and a brighter future for every vulnerable person.</p>
+      </div>
+    </div>
+    <div class="values reveal">
+      <div class="value-pill"><span class="dot"></span>Compassion</div>
+      <div class="value-pill"><span class="dot"></span>Integrity</div>
+      <div class="value-pill"><span class="dot"></span>Unity</div>
+      <div class="value-pill"><span class="dot"></span>Accountability</div>
+      <div class="value-pill"><span class="dot"></span>Respect</div>
+      <div class="value-pill"><span class="dot"></span>Service</div>
+    </div>
+  </div>
+</section>
+
+<div class="dawn-divider">
+  <svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="80" y1="34" x2="80" y2="14"/><line x1="56" y1="36" x2="50" y2="18"/>
+      <line x1="104" y1="36" x2="110" y2="18"/><line x1="32" y1="38" x2="22" y2="24"/>
+      <line x1="128" y1="38" x2="138" y2="24"/>
+    </g>
+    <path d="M 20 38 A 60 60 0 0 1 140 38" fill="none" stroke="#f2a13a" stroke-width="4" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- OUR STORY -->
+<section>
+  <div class="wrap">
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <p class="eyebrow">Our Story</p>
+        <h2>From a vision to a movement across Kusaug</h2>
+        <p>Inshallah Widows and Orphans Foundation was established with one clear mission: to improve the lives of widows and orphans through compassion, empowerment and practical support.</p>
+        <p>On 16 July 2026 in Binduri and 26 July 2026 in Garu, the Foundation held its landmark launch events — bringing together community leaders, volunteers and stakeholders united by a shared belief that every widow and orphan deserves dignity, inclusion and opportunity.</p>
+        <p>Under the leadership of CEO Awudu Fuseini (Top Senior) and a dedicated management team, the Foundation has already completed its first region-wide screening exercise, registering <strong>6,132 beneficiaries</strong> across all six districts of Kusaug.</p>
+        <p>This is only the beginning. Together, we are building a stronger and more compassionate Kusaug where no vulnerable person is left behind.</p>
+      </div>
+      <div class="story-img">
+        <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation" style="object-fit:contain;padding:40px;background:var(--navy);height:420px;"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="wrap">
+  <div class="stat-strip reveal">
+    <div>
+      <span class="stat-val">6,132</span>
+      <div class="stat-label">Beneficiaries Registered</div>
+    </div>
+    <div>
+      <span class="stat-val">2,730</span>
+      <div class="stat-label">Widows Reached</div>
+    </div>
+    <div>
+      <span class="stat-val">1,971</span>
+      <div class="stat-label">Orphans Supported</div>
+    </div>
+    <div>
+      <span class="stat-val">6</span>
+      <div class="stat-label">Districts Covered</div>
+    </div>
+  </div>
+</div>
+
+<div class="dawn-divider">
+  <svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="80" y1="34" x2="80" y2="14"/><line x1="56" y1="36" x2="50" y2="18"/>
+      <line x1="104" y1="36" x2="110" y2="18"/><line x1="32" y1="38" x2="22" y2="24"/>
+      <line x1="128" y1="38" x2="138" y2="24"/>
+    </g>
+    <path d="M 20 38 A 60 60 0 0 1 140 38" fill="none" stroke="#f2a13a" stroke-width="4" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- EXECUTIVE TEAM -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Leadership</p>
+      <h2>Meet the executive team</h2>
+      <p>Dedicated individuals united by a shared commitment to transforming the lives of widows and orphans across Kusaug.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/topsenior.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Awudu Fuseini Top Senior</h3>
+          <div class="role">CEO</div>
+          <p class="bio">Dedicated to championing the welfare of vulnerable communities across the Kusaug region.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/widat.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Jembeidu widat</h3>
+          <div class="role">Secretary</div>
+          <p class="bio">Committed to building partnerships that create lasting impact for widows and orphans.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/aziz.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Ayaaba Abdul Aziz</h3>
+          <div class="role">Public Relations Officer</div>
+          <p class="bio">Passionate about community-driven solutions and empowering the most vulnerable.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/nash.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Ali Nashiru</h3>
+          <div class="role">Programs manager</div>
+          <p class="bio">Works tirelessly to ensure every beneficiary receives care, dignity and opportunity.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/rauf.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Seidu Rauf</h3>
+          <div class="role">Financial secretary</div>
+          <p class="bio">Bringing compassionate leadership and strategic vision to the Foundation's programs.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/tahiru.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Abanga Tahiru</h3>
+          <div class="role">Board chairman</div>
+          <p class="bio">Dedicated to advocacy, outreach and ensuring no widow or orphan is left behind.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-photo"><img src="images/fk.jpg" alt="Executive member"/></div>
+        <div class="team-info">
+          <h3>Sulemana Mubarak</h3>
+          <div class="role">Organizer</div>
+          <p class="bio">Focused on operational excellence and delivering meaningful support across all six districts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.jpeg" alt="Logo"/>
+        <div><strong>Inshallah Widows &amp; Orphans Foundation</strong><span>A Better Future for Widows and Orphans</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a><a href="index.html#donate">Donate</a><a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Inshallah Widows and Orphans Foundation. Garu, Abilatega, Upper East Region, Ghana.</div>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const toggle=document.getElementById('menuToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const o=links.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+const obs=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

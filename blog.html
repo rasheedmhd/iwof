@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog – Inshallah Widows and Orphans Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* BLOG LIST */
+.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.blog-card{background:#fff;border:1px solid var(--sand-2);border-radius:20px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(20,35,71,0.09);}
+.blog-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.blog-banner{background:linear-gradient(135deg,var(--navy),var(--navy-soft));min-height:240px;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;}
+.blog-banner svg.dec{position:absolute;opacity:0.2;bottom:-20px;right:-20px;width:200px;height:200px;}
+.blog-banner .tag{position:absolute;top:18px;left:18px;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;}
+.blog-banner-icon svg{width:64px;height:64px;opacity:0.9;}
+.featured .blog-banner{min-height:340px;}
+.blog-body{padding:32px;}
+.blog-meta{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
+.blog-meta .date{font-size:0.82rem;color:var(--ink-soft);font-weight:500;}
+.blog-meta .cat{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(242,161,58,0.1);padding:4px 12px;border-radius:999px;}
+.blog-body h2{font-size:1.35rem;margin-bottom:12px;line-height:1.25;}
+.blog-body h3{font-size:1.1rem;margin-bottom:12px;line-height:1.25;}
+.blog-body p{color:var(--ink-soft);font-size:0.95rem;line-height:1.65;margin-bottom:12px;}
+.blog-body .read-more{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--navy);font-size:0.9rem;border-bottom:2px solid var(--gold);padding-bottom:2px;margin-top:6px;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:inherit;}
+
+/* ARTICLE VIEW */
+.article-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(20,35,71,0.55);backdrop-filter:blur(4px);overflow-y:auto;padding:40px 20px;}
+.article-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
+.article-box{background:var(--sand);border-radius:24px;max-width:780px;width:100%;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(20,35,71,0.22);}
+.article-header{background:linear-gradient(160deg,var(--navy),var(--navy-soft));padding:50px 48px 40px;color:var(--cream-text);position:relative;overflow:hidden;}
+.article-header::after{content:"";position:absolute;bottom:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(242,161,58,0.3),transparent 70%);}
+.article-header .cat{font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;}
+.article-header h1{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--cream-text);margin-bottom:14px;position:relative;z-index:1;}
+.article-header .meta{font-size:0.85rem;color:rgba(247,243,234,0.65);}
+.article-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);border:none;color:var(--cream-text);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;z-index:2;}
+.article-close:hover{background:rgba(255,255,255,0.22);}
+.article-content{padding:44px 48px;}
+.article-content p{color:var(--ink-soft);line-height:1.75;margin-bottom:18px;font-size:1.02rem;}
+.article-content h3{font-size:1.2rem;color:var(--navy);margin:28px 0 12px;}
+.article-content .district-table{width:100%;border-collapse:collapse;margin:24px 0;border-radius:12px;overflow:hidden;font-size:0.93rem;}
+.article-content .district-table th{background:var(--navy);color:var(--cream-text);padding:12px 16px;text-align:left;font-weight:600;}
+.article-content .district-table td{padding:11px 16px;border-bottom:1px solid var(--sand-2);color:var(--ink);}
+.article-content .district-table tr:nth-child(even) td{background:#fff;}
+.article-content .district-table tr:last-child td{background:rgba(242,161,58,0.1);font-weight:700;color:var(--navy);}
+.article-content .pull-quote{border-left:4px solid var(--gold);padding:16px 22px;margin:24px 0;background:#fff;border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy);font-style:italic;}
+
+@media(max-width:760px){
+  .blog-grid{grid-template-columns:1fr;}
+  .blog-card.featured{grid-template-columns:1fr;}
+  .featured .blog-banner{min-height:200px;}
+  .article-content{padding:28px 22px;}
+  .article-header{padding:36px 22px 30px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation logo"/>
+      <div class="brand-text">
+        <strong>Inshallah Widows &amp; Orphans Foundation</strong>
+        <span>A better future, together</span>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menuToggle">&#9776;</button>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <svg class="bg" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="8" stroke-linecap="round" opacity="0.6">
+      <line x1="600" y1="310" x2="600" y2="210"/><line x1="550" y1="314" x2="538" y2="216"/>
+      <line x1="500" y1="326" x2="476" y2="232"/><line x1="454" y1="346" x2="418" y2="260"/>
+      <line x1="650" y1="314" x2="662" y2="216"/><line x1="700" y1="326" x2="724" y2="232"/>
+      <line x1="746" y1="346" x2="782" y2="260"/>
+    </g>
+    <circle cx="600" cy="310" r="110" fill="none" stroke="#f2a13a" stroke-width="5" opacity="0.35"/>
+  </svg>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <p class="eyebrow" style="color:var(--gold-light);">News &amp; Updates</p>
+    <h1>Blog</h1>
+    <p>Stories, announcements and updates from the Inshallah Widows and Orphans Foundation.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="blog-grid">
+
+      <!-- POST 1 — FEATURED -->
+      <article class="blog-card featured reveal" onclick="openArticle('post1')">
+        <div class="blog-banner">
+          <div class="tag">Featured</div>
+          <div class="blog-banner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fbcf7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <svg class="dec" viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="#f2a13a" stroke-width="3"/><circle cx="100" cy="100" r="60" fill="none" stroke="#f2a13a" stroke-width="2"/></svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="cat">Registration</span>
+            <span class="date">August 2026</span>
+          </div>
+          <h2>Foundation Registers 6,132 Beneficiaries Across Kusaug</h2>
+          <p>The Inshallah Widows and Orphans Foundation has successfully completed its screening and registration exercise across all six districts of Kusaug, reaching thousands of vulnerable widows, orphans and Persons with Disabilities.</p>
+          <button class="read-more" onclick="event.stopPropagation();openArticle('post1')">Read full story →</button>
+        </div>
+      </article>
+
+      <!-- POST 2 -->
+      <article class="blog-card reveal" onclick="openArticle('post2')">
+        <div class="blog-banner" style="background:linear-gradient(135deg,#1a3a6b,#2a4080);min-height:180px;">
+          <div class="tag">Statement</div>
+          <div class="blog-banner-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fbcf7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="cat">Foundation Update</span>
+            <span class="date">27 July 2026</span>
+          </div>
+          <h3>Our Commitment Remains: Service to Humanity Cannot Wait</h3>
+          <p>The Foundation reflects on its landmark launch events in Binduri and Garu, and reaffirms its non-partisan commitment to serving all vulnerable people in Kusaug regardless of political affiliation.</p>
+          <button class="read-more" onclick="event.stopPropagation();openArticle('post2')">Read full story →</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLE OVERLAY: POST 1 ===== -->
+<div class="article-overlay" id="post1" role="dialog" aria-modal="true" aria-label="Foundation Registers 6,132 Beneficiaries">
+  <div class="article-box">
+    <div class="article-header">
+      <button class="article-close" onclick="closeArticle('post1')" aria-label="Close article">&times;</button>
+      <div class="cat">Registration &bull; August 2026</div>
+      <h1>Foundation Registers 6,132 Beneficiaries Across Kusaug</h1>
+      <div class="meta">Inshallah Widows and Orphans Foundation &mdash; Official Update</div>
+    </div>
+    <div class="article-content">
+      <p>The Inshallah Widows and Orphans Foundation has successfully completed its screening and registration exercise across the six districts of Kusaug, reaching thousands of vulnerable individuals, including widows, orphans, and Persons with Disabilities (PWDs).</p>
+      <p>The exercise was aimed at identifying deserving beneficiaries, creating a reliable database, and ensuring that future support programmes are targeted at those who need assistance most. Through the commitment of foundation officials, volunteers, community leaders and other stakeholders, a total of <strong>6,132 beneficiaries</strong> have been registered across the six districts.</p>
+
+      <div class="pull-quote">"Every widow, orphan and Person with Disability deserves dignity, inclusion and an opportunity to improve their quality of life."</div>
+
+      <h3>District-by-District Registration Results</h3>
+      <table class="district-table">
+        <thead>
+          <tr><th>District</th><th>Widows</th><th>Orphans</th><th>PWDs</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bawku West</td><td>475</td><td>231</td><td>150</td><td><strong>856</strong></td></tr>
+          <tr><td>Binduri</td><td>305</td><td>540</td><td>340</td><td><strong>1,185</strong></td></tr>
+          <tr><td>Garu</td><td>432</td><td>260</td><td>234</td><td><strong>926</strong></td></tr>
+          <tr><td>Pusiga</td><td>423</td><td>345</td><td>125</td><td><strong>893</strong></td></tr>
+          <tr><td>Tempane</td><td>535</td><td>145</td><td>132</td><td><strong>812</strong></td></tr>
+          <tr><td>Bawku</td><td>560</td><td>450</td><td>450</td><td><strong>1,460</strong></td></tr>
+          <tr><td><strong>Grand Total</strong></td><td><strong>2,730</strong></td><td><strong>1,971</strong></td><td><strong>1,431</strong></td><td><strong>6,132</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p>The registration exercise represents an important step in the Foundation's commitment to improving the lives of vulnerable people within the Kusaug area. The data collected will help the Foundation plan and implement future programmes in areas such as economic empowerment, skills training, education, social welfare, and other forms of support.</p>
+      <p>The Foundation believes that every widow, orphan and Person with Disability deserves dignity, inclusion and an opportunity to improve their quality of life.</p>
+      <div class="pull-quote">Inshallah, this is only the beginning. Together, we can build a stronger and more compassionate Kusaug where no vulnerable person is left behind.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ARTICLE OVERLAY: POST 2 ===== -->
+<div class="article-overlay" id="post2" role="dialog" aria-modal="true" aria-label="Our Commitment Remains">
+  <div class="article-box">
+    <div class="article-header">
+      <button class="article-close" onclick="closeArticle('post2')" aria-label="Close article">&times;</button>
+      <div class="cat">Foundation Statement &bull; 27 July 2026</div>
+      <h1>Our Commitment Remains: Service to Humanity Cannot Wait</h1>
+      <div class="meta">Inshallah Widows and Orphans Foundation &mdash; Official Statement</div>
+    </div>
+    <div class="article-content">
+      <p>The Inshallah Widows and Orphans Foundation was established with one clear mission: to improve the lives of widows and orphans through compassion, empowerment, and practical support. Since its inception, the Foundation has demonstrated a commitment to serving vulnerable members of society, regardless of political affiliation.</p>
+      <p>On 16 July 2026 in Binduri and 26 July 2026 in Garu, the Foundation successfully held its launch events. We invited our District Chief Executives (DCEs), Members of Parliament (MPs), and other public officials because we wanted them to witness this important initiative and share in the vision of transforming lives.</p>
+      <p>Unfortunately, many of our invited leaders were unable to attend. While we respect that public officials have demanding schedules, their presence at such events would have sent a powerful message that the welfare of widows and orphans is a priority for all of us.</p>
+
+      <div class="pull-quote">"Our invitation was never about politics or campaigning. We simply wanted our leaders to witness what ordinary citizens are doing to support vulnerable people."</div>
+
+      <p>Community development is a shared responsibility, and when government, civil society, traditional authorities, and volunteers work together, everyone benefits.</p>
+      <p>Despite the challenges, our CEO, Awudu Fuseini (Top Senior), the management team, and our volunteers remain committed to this mission. We will continue to reach out to those in need because service to humanity cannot wait.</p>
+      <p>We also hope that, going forward, our political leaders and government appointees will continue to support community-based initiatives like this, regardless of who organizes them.</p>
+
+      <div class="pull-quote">Widows and orphans should never become an afterthought or a political issue. They deserve our compassion, our time, and our collective support.</div>
+
+      <p>The future of Kusaug is in our hands. If we unite behind initiatives that improve lives, we can build a stronger, more caring society where every widow feels supported and every orphan has hope for a brighter tomorrow.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.jpeg" alt="Logo"/>
+        <div><strong>Inshallah Widows &amp; Orphans Foundation</strong><span>A Better Future for Widows and Orphans</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a><a href="index.html#donate">Donate</a><a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Inshallah Widows and Orphans Foundation. Garu, Abilatega, Upper East Region, Ghana.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const toggle=document.getElementById('menuToggle'),navLinks=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const o=navLinks.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+const obs=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function openArticle(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeArticle(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
+document.querySelectorAll('.article-overlay').forEach(ov=>{
+  ov.addEventListener('click',e=>{if(e.target===ov)closeArticle(ov.id);});
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.article-overlay.open').forEach(ov=>closeArticle(ov.id));});
+</script>
+</body>
+</html>

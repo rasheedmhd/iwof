@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery – Inshallah Widows and Orphans Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* GALLERY PAGE */
+.gallery-tabs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;}
+.tab-btn{padding:10px 24px;border-radius:999px;border:1px solid var(--sand-2);background:#fff;font-weight:600;font-size:0.9rem;cursor:pointer;color:var(--ink);transition:all .2s ease;}
+.tab-btn.active,.tab-btn:hover{background:var(--navy);color:var(--cream-text);border-color:var(--navy);}
+
+/* pixieset embed */
+.pixieset-wrap{border-radius:22px;overflow:hidden;box-shadow:0 12px 36px rgba(20,35,71,0.12);background:#111;margin-bottom:24px;position:relative;}
+.pixieset-wrap iframe{width:100%;height:600px;border:none;display:block;}
+.pixieset-open{display:flex;justify-content:center;margin-bottom:60px;}
+.pixieset-open a{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:999px;background:var(--navy);color:var(--cream-text);font-weight:700;font-size:0.95rem;transition:background .2s ease,transform .2s ease;}
+.pixieset-open a:hover{background:var(--navy-soft);transform:translateY(-2px);}
+.pixieset-open a svg{width:18px;height:18px;}
+
+/* video section */
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+.video-card{background:#fff;border:1px solid var(--sand-2);border-radius:18px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;}
+.video-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(20,35,71,0.08);}
+.video-thumb{aspect-ratio:16/9;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.video-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.7;}
+.play-btn{position:absolute;width:56px;height:56px;border-radius:50%;background:rgba(242,161,58,0.92);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,background .2s ease;}
+.video-card:hover .play-btn{transform:scale(1.1);background:var(--gold);}
+.play-btn svg{width:22px;height:22px;margin-left:3px;}
+.video-info{padding:20px 22px;}
+.video-info h3{font-size:1.05rem;margin-bottom:6px;}
+.video-info p{font-size:0.88rem;color:var(--ink-soft);}
+
+/* placeholder grid for future photos */
+.placeholder-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.ph-item{aspect-ratio:1;border-radius:16px;background:linear-gradient(135deg,var(--sand-2),#fff);border:1px dashed #d8c9ad;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink-soft);}
+.ph-item svg{width:28px;height:28px;opacity:0.5;}
+.ph-item span{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;}
+
+/* news link card */
+.news-card{background:#fff;border:1px solid var(--sand-2);border-radius:18px;padding:32px;display:flex;gap:24px;align-items:center;margin-bottom:60px;transition:box-shadow .2s ease;}
+.news-card:hover{box-shadow:0 12px 32px rgba(20,35,71,0.08);}
+.news-icon{width:56px;height:56px;border-radius:16px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.news-icon svg{width:26px;height:26px;}
+.news-card h3{font-size:1.1rem;margin-bottom:6px;}
+.news-card p{color:var(--ink-soft);font-size:0.93rem;margin-bottom:14px;}
+.news-card a.read-more{font-weight:700;color:var(--navy);font-size:0.9rem;display:inline-flex;align-items:center;gap:6px;border-bottom:2px solid var(--gold);padding-bottom:2px;}
+
+@media(max-width:760px){
+  .video-grid{grid-template-columns:1fr;}
+  .placeholder-grid{grid-template-columns:repeat(2,1fr);}
+  .pixieset-wrap iframe{height:420px;}
+  .news-card{flex-direction:column;gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <img src="logo.jpeg" alt="Inshallah Widows and Orphans Foundation logo"/>
+      <div class="brand-text">
+        <strong>Inshallah Widows &amp; Orphans Foundation</strong>
+        <span>A better future, together</span>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menuToggle">&#9776;</button>
+    <nav class="links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#donate" class="cta">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <svg class="bg" viewBox="0 0 1200 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="8" stroke-linecap="round" opacity="0.6">
+      <line x1="600" y1="310" x2="600" y2="210"/><line x1="550" y1="314" x2="538" y2="216"/>
+      <line x1="500" y1="326" x2="476" y2="232"/><line x1="454" y1="346" x2="418" y2="260"/>
+      <line x1="650" y1="314" x2="662" y2="216"/><line x1="700" y1="326" x2="724" y2="232"/>
+      <line x1="746" y1="346" x2="782" y2="260"/>
+    </g>
+    <circle cx="600" cy="310" r="110" fill="none" stroke="#f2a13a" stroke-width="5" opacity="0.35"/>
+  </svg>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <p class="eyebrow" style="color:var(--gold-light);">Our Work in Pictures</p>
+    <h1>Gallery</h1>
+    <p>Moments from our launches, outreach programs and community events across Kusaug.</p>
+  </div>
+</div>
+
+<!-- PHOTO GALLERY via Pixieset -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Photo Gallery</p>
+      <h2>Foundation launch &amp; outreach photos</h2>
+      <p>Browse our official photo gallery from the Garu and Binduri launch events and our registration exercise across six districts.</p>
+    </div>
+
+    <div class="pixieset-wrap reveal">
+      <iframe
+        src="https://gadamphotography89.pixieset.com/ishallahwidowsandorphansfoundation/"
+        title="Inshallah Widows and Orphans Foundation – Photo Gallery"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <div class="pixieset-open">
+      <a href="https://gadamphotography89.pixieset.com/ishallahwidowsandorphansfoundation/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Open full gallery in new tab
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="dawn-divider">
+  <svg width="160" height="40" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#f2a13a" stroke-width="4" stroke-linecap="round" opacity="0.7">
+      <line x1="80" y1="34" x2="80" y2="14"/><line x1="56" y1="36" x2="50" y2="18"/>
+      <line x1="104" y1="36" x2="110" y2="18"/><line x1="32" y1="38" x2="22" y2="24"/>
+      <line x1="128" y1="38" x2="138" y2="24"/>
+    </g>
+    <path d="M 20 38 A 60 60 0 0 1 140 38" fill="none" stroke="#f2a13a" stroke-width="4" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- NEWS COVERAGE -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">In The News</p>
+      <h2>Media coverage</h2>
+      <p>Our work has been featured across media outlets covering community development in the Upper East Region.</p>
+    </div>
+
+    <a href="https://channel247online.com/philanthropist-launches-foundation-to-support-kusaug-widows-and-orphans/" target="_blank" rel="noopener" class="news-card reveal">
+      <div class="news-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/><path d="M4 22a2 2 0 01-2-2v-2h6v2a2 2 0 01-2 2H4z"/><line x1="14" y1="2" x2="14" y2="8"/><line x1="10" y1="8" x2="18" y2="8"/><line x1="10" y1="12" x2="18" y2="12"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+      </div>
+      <div>
+        <h3>Philanthropist Launches Foundation to Support Kusaug Widows and Orphans</h3>
+        <p>Channel 247 Online covered the historic launch of the Inshallah Widows and Orphans Foundation, reporting on the Foundation's ambitious plans to support thousands of vulnerable people across the Kusaug area.</p>
+        <span class="read-more">Read full article →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- VIDEO PLACEHOLDERS -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Video</p>
+      <h2>Watch our story</h2>
+      <p>Video coverage from our launch events and outreach activities. More videos coming soon.</p>
+    </div>
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="video-thumb" style="background:linear-gradient(135deg,var(--navy),var(--navy-soft));">
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+        <div class="video-info">
+          <h3>Foundation Launch – Binduri, July 2026</h3>
+          <p>Coverage of the official Binduri district launch event on 16 July 2026.</p>
+        </div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-thumb" style="background:linear-gradient(135deg,var(--navy-soft),#3a5298);">
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        </div>
+        <div class="video-info">
+          <h3>Foundation Launch – Garu, July 2026</h3>
+          <p>Highlights from the Garu district launch event on 26 July 2026.</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);margin-top:20px;font-size:0.9rem;">Video links will be added here — contact us to share event footage.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.jpeg" alt="Logo"/>
+        <div><strong>Inshallah Widows &amp; Orphans Foundation</strong><span>A Better Future for Widows and Orphans</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a><a href="index.html#donate">Donate</a><a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; <span id="year"></span> Inshallah Widows and Orphans Foundation. Garu, Abilatega, Upper East Region, Ghana.</div>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+const toggle=document.getElementById('menuToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const o=links.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
+const obs=new IntersectionObserver((e)=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
