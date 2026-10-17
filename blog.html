@@ -15,10 +15,14 @@
 .blog-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(20,35,71,0.09);}
 .blog-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;}
 .blog-banner{background:linear-gradient(135deg,var(--navy),var(--navy-soft));min-height:240px;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;}
+.blog-banner.has-img{padding:0;}
+.blog-banner.has-img img{width:100%;height:100%;object-fit:cover;object-position:center top;min-height:240px;transition:transform .4s ease;}
+.blog-card:hover .blog-banner.has-img img{transform:scale(1.04);}
 .blog-banner svg.dec{position:absolute;opacity:0.2;bottom:-20px;right:-20px;width:200px;height:200px;}
-.blog-banner .tag{position:absolute;top:18px;left:18px;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;}
+.blog-banner .tag{position:absolute;top:18px;left:18px;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;z-index:2;}
 .blog-banner-icon svg{width:64px;height:64px;opacity:0.9;}
 .featured .blog-banner{min-height:340px;}
+.featured .blog-banner.has-img img{min-height:340px;}
 .blog-body{padding:32px;}
 .blog-meta{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap;}
 .blog-meta .date{font-size:0.82rem;color:var(--ink-soft);font-weight:500;}
@@ -33,12 +37,16 @@
 .article-overlay.open{display:flex;align-items:flex-start;justify-content:center;}
 .article-box{background:var(--sand);border-radius:24px;max-width:780px;width:100%;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(20,35,71,0.22);}
 .article-header{background:linear-gradient(160deg,var(--navy),var(--navy-soft));padding:50px 48px 40px;color:var(--cream-text);position:relative;overflow:hidden;}
+.article-header.has-flyer{padding:0;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;}
+.article-header.has-flyer .flyer-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+.article-header.has-flyer .flyer-overlay{position:relative;z-index:1;background:linear-gradient(0deg,rgba(20,35,71,0.92) 0%,rgba(20,35,71,0.3) 100%);padding:36px 48px 32px;}
 .article-header::after{content:"";position:absolute;bottom:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(242,161,58,0.3),transparent 70%);}
+.article-header.has-flyer::after{display:none;}
 .article-header .cat{font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;}
-.article-header h1{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--cream-text);margin-bottom:14px;position:relative;z-index:1;}
+.article-header h1{font-size:clamp(1.5rem,3.5vw,2.1rem);color:var(--cream-text);margin-bottom:14px;position:relative;z-index:1;}
 .article-header .meta{font-size:0.85rem;color:rgba(247,243,234,0.65);}
-.article-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);border:none;color:var(--cream-text);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;z-index:2;}
-.article-close:hover{background:rgba(255,255,255,0.22);}
+.article-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;background:rgba(20,35,71,0.7);border:none;color:var(--cream-text);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease;z-index:10;}
+.article-close:hover{background:rgba(20,35,71,0.9);}
 .article-content{padding:44px 48px;}
 .article-content p{color:var(--ink-soft);line-height:1.75;margin-bottom:18px;font-size:1.02rem;}
 .article-content h3{font-size:1.2rem;color:var(--navy);margin:28px 0 12px;}
@@ -49,12 +57,25 @@
 .article-content .district-table tr:last-child td{background:rgba(242,161,58,0.1);font-weight:700;color:var(--navy);}
 .article-content .pull-quote{border-left:4px solid var(--gold);padding:16px 22px;margin:24px 0;background:#fff;border-radius:0 12px 12px 0;font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy);font-style:italic;}
 
+/* district pills */
+.district-pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;}
+.district-pills span{background:var(--navy);color:var(--cream-text);font-size:0.82rem;font-weight:600;padding:6px 16px;border-radius:999px;}
+
+/* event detail strip */
+.event-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
+.event-strip .ev{background:#fff;border-radius:14px;padding:18px;text-align:center;border:1px solid var(--sand-2);}
+.event-strip .ev .ev-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;color:var(--gold);margin-bottom:6px;}
+.event-strip .ev .ev-val{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--navy);}
+
 @media(max-width:760px){
   .blog-grid{grid-template-columns:1fr;}
   .blog-card.featured{grid-template-columns:1fr;}
   .featured .blog-banner{min-height:200px;}
+  .featured .blog-banner.has-img img{min-height:200px;}
   .article-content{padding:28px 22px;}
   .article-header{padding:36px 22px 30px;}
+  .article-header.has-flyer .flyer-overlay{padding:24px 22px 20px;}
+  .event-strip{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
@@ -102,10 +123,61 @@
   <div class="wrap">
     <div class="blog-grid">
 
-      <!-- POST 1 — FEATURED -->
-      <article class="blog-card featured reveal" onclick="openArticle('post1')">
+      <!-- POST 3 — CHARITY CONCERT (featured, newest first) -->
+      <article class="blog-card featured reveal" onclick="openArticle('post3')">
+        <div class="blog-banner has-img">
+          <div class="tag">Event</div>
+          <img src="images/concert.jpeg" alt="Charity Concert & CEO Homecoming flyer"/>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="cat">Upcoming Event</span>
+            <span class="date">October 2026</span>
+          </div>
+          <h2>Charity Concert &amp; CEO Homecoming — 2nd January 2027, Zebilla</h2>
+          <p>The Inshallah Widows and Orphans Foundation announces a special charity concert and CEO homecoming celebration at Zebango Lodge, Zebilla, on 2nd January 2027 — marking a milestone year of service to Kusaug's most vulnerable.</p>
+          <button class="read-more" onclick="event.stopPropagation();openArticle('post3')">Read full story →</button>
+        </div>
+      </article>
+
+      <!-- POST 4 — SKILLS TRAINING -->
+      <article class="blog-card reveal" onclick="openArticle('post4')">
+        <div class="blog-banner has-img">
+          <div class="tag">Programme</div>
+          <img src="images/skills.jpeg" alt="Skills Training & Empowerment flyer"/>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="cat">Empowerment</span>
+            <span class="date">Oct 25 – Nov 13, 2026</span>
+          </div>
+          <h3>Skills Training &amp; Empowerment Across All Six Districts</h3>
+          <p>The Foundation is launching skills training programmes across all six districts of Kusaug to equip widows and vulnerable persons with practical skills for self-reliance and economic independence.</p>
+          <button class="read-more" onclick="event.stopPropagation();openArticle('post4')">Read full story →</button>
+        </div>
+      </article>
+
+      <!-- POST 5 — DONATION & COMMUNITY SUPPORT -->
+      <article class="blog-card reveal" onclick="openArticle('post5')">
+        <div class="blog-banner has-img">
+          <div class="tag">Donation</div>
+          <img src="images/donation.jpeg" alt="Donation & Community Support flyer"/>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="cat">Community Support</span>
+            <span class="date">2026</span>
+          </div>
+          <h3>Donation &amp; Community Support Across All Six Districts of Kusaug</h3>
+          <p>The Foundation marks 2026 with a humanitarian donation initiative targeting double orphans and persons with disabilities across the Kusaug Traditional Area — bringing essential support to those who need it most.</p>
+          <button class="read-more" onclick="event.stopPropagation();openArticle('post5')">Read full story →</button>
+        </div>
+      </article>
+
+      <!-- POST 1 — REGISTRATION -->
+      <article class="blog-card reveal" onclick="openArticle('post1')">
         <div class="blog-banner">
-          <div class="tag">Featured</div>
+          <div class="tag">Registration</div>
           <div class="blog-banner-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fbcf7d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
@@ -119,13 +191,13 @@
             <span class="cat">Registration</span>
             <span class="date">August 2026</span>
           </div>
-          <h2>Foundation Registers 6,132 Beneficiaries Across Kusaug</h2>
-          <p>The Inshallah Widows and Orphans Foundation has successfully completed its screening and registration exercise across all six districts of Kusaug, reaching thousands of vulnerable widows, orphans and Persons with Disabilities.</p>
+          <h3>Foundation Registers 6,132 Beneficiaries Across Kusaug</h3>
+          <p>The Foundation completes its screening and registration exercise across all six districts, reaching 6,132 widows, orphans and persons with disabilities.</p>
           <button class="read-more" onclick="event.stopPropagation();openArticle('post1')">Read full story →</button>
         </div>
       </article>
 
-      <!-- POST 2 -->
+      <!-- POST 2 — STATEMENT -->
       <article class="blog-card reveal" onclick="openArticle('post2')">
         <div class="blog-banner" style="background:linear-gradient(135deg,#1a3a6b,#2a4080);min-height:180px;">
           <div class="tag">Statement</div>
@@ -141,7 +213,7 @@
             <span class="date">27 July 2026</span>
           </div>
           <h3>Our Commitment Remains: Service to Humanity Cannot Wait</h3>
-          <p>The Foundation reflects on its landmark launch events in Binduri and Garu, and reaffirms its non-partisan commitment to serving all vulnerable people in Kusaug regardless of political affiliation.</p>
+          <p>The Foundation reflects on its landmark launch events in Binduri and Garu, and reaffirms its non-partisan commitment to serving all vulnerable people in Kusaug.</p>
           <button class="read-more" onclick="event.stopPropagation();openArticle('post2')">Read full story →</button>
         </div>
       </article>
@@ -150,7 +222,98 @@
   </div>
 </section>
 
-<!-- ===== ARTICLE OVERLAY: POST 1 ===== -->
+<!-- ===== OVERLAY: POST 3 — CHARITY CONCERT ===== -->
+<div class="article-overlay" id="post3" role="dialog" aria-modal="true" aria-label="Charity Concert & CEO Homecoming">
+  <div class="article-box">
+    <div class="article-header has-flyer">
+      <button class="article-close" onclick="closeArticle('post3')" aria-label="Close article">&times;</button>
+      <img class="flyer-img" src="images/concert.jpeg" alt="Charity Concert & CEO Homecoming flyer"/>
+      <div class="flyer-overlay">
+        <div class="cat">Upcoming Event &bull; October 2026</div>
+        <h1>Charity Concert &amp; CEO Homecoming</h1>
+        <div class="meta">Inshallah Widows and Orphans Foundation &mdash; Event Announcement</div>
+      </div>
+    </div>
+    <div class="article-content">
+      <div class="event-strip">
+        <div class="ev"><div class="ev-label">Date</div><div class="ev-val">2nd January 2027</div></div>
+        <div class="ev"><div class="ev-label">Venue</div><div class="ev-val">Zebango Lodge, Zebilla</div></div>
+        <div class="ev"><div class="ev-label">Info</div><div class="ev-val">0548 075 413</div></div>
+      </div>
+      <p>The Inshallah Widows and Orphans Foundation is proud to announce a special <strong>Charity Concert &amp; CEO Homecoming</strong> celebration, set to take place on <strong>2nd January 2027</strong> at Zebango Lodge, Zebilla.</p>
+      <p>The Chief Executive Officer of the Foundation, Mr. Awudu Fuseini, popularly known as <em>Top Senior</em>, is set to celebrate his homecoming following a remarkable year of commitment to supporting widows, orphans, persons with disabilities, and other vulnerable groups across the Kusaug Traditional Area.</p>
+      <p>The homecoming celebration will provide an opportunity to reflect on the Foundation's journey, recognise its achievements, and appreciate the individuals and partners who have supported its humanitarian mission throughout 2026.</p>
+      <div class="pull-quote">Since its establishment, the Foundation has been committed to restoring hope, improving livelihoods, and promoting the welfare of vulnerable people through donations, community support, and empowerment initiatives.</div>
+      <p>The event will celebrate Mr. Awudu Fuseini Top Senior's vision of building a society where vulnerable individuals are valued, supported, and empowered to live with dignity. It will also serve as a platform to rally community members, traditional leaders, stakeholders and development partners around the Foundation's ongoing mission.</p>
+      <p>As the Foundation celebrates this milestone, it calls on all community members to join hands in advancing its mission of compassion, unity and sustainable support for those in need.</p>
+      <p style="font-weight:600;color:var(--navy);">For more information, call: <a href="tel:0548075413" style="color:var(--gold);">0548 075 413</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OVERLAY: POST 4 — SKILLS TRAINING ===== -->
+<div class="article-overlay" id="post4" role="dialog" aria-modal="true" aria-label="Skills Training & Empowerment">
+  <div class="article-box">
+    <div class="article-header has-flyer">
+      <button class="article-close" onclick="closeArticle('post4')" aria-label="Close article">&times;</button>
+      <img class="flyer-img" src="images/skills.jpeg" alt="Skills Training & Empowerment flyer"/>
+      <div class="flyer-overlay">
+        <div class="cat">Empowerment Programme &bull; October–November 2026</div>
+        <h1>Skills Training &amp; Empowerment Across All Six Districts</h1>
+        <div class="meta">Inshallah Widows and Orphans Foundation &mdash; Programme Update</div>
+      </div>
+    </div>
+    <div class="article-content">
+      <div class="event-strip">
+        <div class="ev"><div class="ev-label">Start Date</div><div class="ev-val">Sun. 25 Oct 2026</div></div>
+        <div class="ev"><div class="ev-label">End Date</div><div class="ev-val">Fri. 13 Nov 2026</div></div>
+        <div class="ev"><div class="ev-label">Info</div><div class="ev-val">0548 075 413</div></div>
+      </div>
+      <p>The Inshallah Widows and Orphans Foundation is committed to empowering vulnerable individuals and creating sustainable opportunities for a better future. As part of its efforts to improve livelihoods, the Foundation is planning <strong>skills training programmes</strong> to equip widows and other vulnerable persons with practical skills to become self-reliant.</p>
+      <p>The initiative aims to promote economic empowerment, reduce poverty, and help beneficiaries establish small businesses to support themselves and their families.</p>
+      <div class="pull-quote">Through this intervention, the Foundation hopes to build a society where widows, orphans, and other vulnerable groups are valued, supported, and empowered to live with dignity.</div>
+      <h3>Districts Covered</h3>
+      <div class="district-pills">
+        <span>Garu</span><span>Tempane</span><span>Binduri</span>
+        <span>Bawku Central</span><span>Bawku West</span><span>Pusiga</span>
+      </div>
+      <p>The skills training exercise will run from <strong>Sunday 25th October to Friday 13th November 2026</strong>, covering all six districts of the Kusaug Traditional Area to ensure every registered beneficiary has access to the programme.</p>
+      <p style="font-weight:600;color:var(--navy);">For more information, call: <a href="tel:0548075413" style="color:var(--gold);">0548 075 413</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OVERLAY: POST 5 — DONATION ===== -->
+<div class="article-overlay" id="post5" role="dialog" aria-modal="true" aria-label="Donation & Community Support">
+  <div class="article-box">
+    <div class="article-header has-flyer">
+      <button class="article-close" onclick="closeArticle('post5')" aria-label="Close article">&times;</button>
+      <img class="flyer-img" src="images/donation.jpeg" alt="Donation & Community Support flyer"/>
+      <div class="flyer-overlay">
+        <div class="cat">Community Support &bull; 2026</div>
+        <h1>Donation &amp; Community Support Across Kusaug</h1>
+        <div class="meta">Inshallah Widows and Orphans Foundation &mdash; Humanitarian Initiative</div>
+      </div>
+    </div>
+    <div class="article-content">
+      <p>The Inshallah Widows and Orphans Foundation has marked the year 2026 with a <strong>humanitarian donation initiative</strong> aimed at supporting double orphans and persons with disabilities across the Kusaug Traditional Area.</p>
+      <p>The initiative forms part of the Foundation's commitment to improving the living conditions of vulnerable individuals and promoting a society where everyone is treated with dignity, compassion, and respect.</p>
+      <p>Through this donation, the Foundation seeks to provide essential support to beneficiaries, ease some of their daily challenges, and bring hope to individuals who need assistance the most.</p>
+      <div class="pull-quote">The Foundation believes that double orphans and persons with disabilities deserve equal opportunities, care, and support to live meaningful lives.</div>
+      <p>The initiative also serves as a reminder that caring for vulnerable members of society is a shared responsibility. As the Foundation marks the year 2026 with this intervention, it remains committed to its mission of supporting vulnerable groups through humanitarian assistance, education, economic empowerment, and other sustainable development programmes.</p>
+      <h3>Target Districts</h3>
+      <p>Donations are intended for <strong>double orphans and persons with disabilities</strong> in:</p>
+      <div class="district-pills">
+        <span>Garu</span><span>Tempane</span><span>Pusiga</span>
+        <span>Bawku West</span><span>Bawku Central</span><span>Binduri</span>
+      </div>
+      <p>The Foundation calls on individuals, organisations, philanthropists, and development partners to join hands in supporting its efforts to build a more inclusive and compassionate society.</p>
+      <p style="font-weight:600;color:var(--navy);">For more information, call: <a href="tel:0548075413" style="color:var(--gold);">0548 075 413</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OVERLAY: POST 1 — REGISTRATION ===== -->
 <div class="article-overlay" id="post1" role="dialog" aria-modal="true" aria-label="Foundation Registers 6,132 Beneficiaries">
   <div class="article-box">
     <div class="article-header">
@@ -162,14 +325,10 @@
     <div class="article-content">
       <p>The Inshallah Widows and Orphans Foundation has successfully completed its screening and registration exercise across the six districts of Kusaug, reaching thousands of vulnerable individuals, including widows, orphans, and Persons with Disabilities (PWDs).</p>
       <p>The exercise was aimed at identifying deserving beneficiaries, creating a reliable database, and ensuring that future support programmes are targeted at those who need assistance most. Through the commitment of foundation officials, volunteers, community leaders and other stakeholders, a total of <strong>6,132 beneficiaries</strong> have been registered across the six districts.</p>
-
       <div class="pull-quote">"Every widow, orphan and Person with Disability deserves dignity, inclusion and an opportunity to improve their quality of life."</div>
-
       <h3>District-by-District Registration Results</h3>
       <table class="district-table">
-        <thead>
-          <tr><th>District</th><th>Widows</th><th>Orphans</th><th>PWDs</th><th>Total</th></tr>
-        </thead>
+        <thead><tr><th>District</th><th>Widows</th><th>Orphans</th><th>PWDs</th><th>Total</th></tr></thead>
         <tbody>
           <tr><td>Bawku West</td><td>475</td><td>231</td><td>150</td><td><strong>856</strong></td></tr>
           <tr><td>Binduri</td><td>305</td><td>540</td><td>340</td><td><strong>1,185</strong></td></tr>
@@ -180,15 +339,13 @@
           <tr><td><strong>Grand Total</strong></td><td><strong>2,730</strong></td><td><strong>1,971</strong></td><td><strong>1,431</strong></td><td><strong>6,132</strong></td></tr>
         </tbody>
       </table>
-
       <p>The registration exercise represents an important step in the Foundation's commitment to improving the lives of vulnerable people within the Kusaug area. The data collected will help the Foundation plan and implement future programmes in areas such as economic empowerment, skills training, education, social welfare, and other forms of support.</p>
-      <p>The Foundation believes that every widow, orphan and Person with Disability deserves dignity, inclusion and an opportunity to improve their quality of life.</p>
       <div class="pull-quote">Inshallah, this is only the beginning. Together, we can build a stronger and more compassionate Kusaug where no vulnerable person is left behind.</div>
     </div>
   </div>
 </div>
 
-<!-- ===== ARTICLE OVERLAY: POST 2 ===== -->
+<!-- ===== OVERLAY: POST 2 — STATEMENT ===== -->
 <div class="article-overlay" id="post2" role="dialog" aria-modal="true" aria-label="Our Commitment Remains">
   <div class="article-box">
     <div class="article-header">
@@ -201,15 +358,10 @@
       <p>The Inshallah Widows and Orphans Foundation was established with one clear mission: to improve the lives of widows and orphans through compassion, empowerment, and practical support. Since its inception, the Foundation has demonstrated a commitment to serving vulnerable members of society, regardless of political affiliation.</p>
       <p>On 16 July 2026 in Binduri and 26 July 2026 in Garu, the Foundation successfully held its launch events. We invited our District Chief Executives (DCEs), Members of Parliament (MPs), and other public officials because we wanted them to witness this important initiative and share in the vision of transforming lives.</p>
       <p>Unfortunately, many of our invited leaders were unable to attend. While we respect that public officials have demanding schedules, their presence at such events would have sent a powerful message that the welfare of widows and orphans is a priority for all of us.</p>
-
       <div class="pull-quote">"Our invitation was never about politics or campaigning. We simply wanted our leaders to witness what ordinary citizens are doing to support vulnerable people."</div>
-
       <p>Community development is a shared responsibility, and when government, civil society, traditional authorities, and volunteers work together, everyone benefits.</p>
       <p>Despite the challenges, our CEO, Awudu Fuseini (Top Senior), the management team, and our volunteers remain committed to this mission. We will continue to reach out to those in need because service to humanity cannot wait.</p>
-      <p>We also hope that, going forward, our political leaders and government appointees will continue to support community-based initiatives like this, regardless of who organizes them.</p>
-
       <div class="pull-quote">Widows and orphans should never become an afterthought or a political issue. They deserve our compassion, our time, and our collective support.</div>
-
       <p>The future of Kusaug is in our hands. If we unite behind initiatives that improve lives, we can build a stronger, more caring society where every widow feels supported and every orphan has hope for a brighter tomorrow.</p>
     </div>
   </div>
